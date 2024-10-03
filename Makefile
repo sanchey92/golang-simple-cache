@@ -4,6 +4,8 @@ BUILD_DIR := build
 
 CMD_DIR := ./cmd
 
+CONFIG_PATH ?= ./config/config.yaml
+
 LDFLAGS := -ldflags "-s -w"
 
 GO := go
@@ -16,7 +18,7 @@ build:
 
 run: build
 	@echo "==> Running the application..."
-	./$(BUILD_DIR)/$(APP_NAME)
+	./$(BUILD_DIR)/$(APP_NAME) -config $(CONFIG_PATH)
 
 clean:
 	@echo "==> Cleaning build directory..."

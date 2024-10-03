@@ -1,0 +1,2 @@
+env: "local"
+listen_addr: "localhost:5000"
