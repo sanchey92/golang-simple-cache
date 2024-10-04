@@ -1,2 +1,2 @@
 env: "local"
-listen_addr: "localhost:5000"
+listen_addr: ":5000"

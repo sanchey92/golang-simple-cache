@@ -2,14 +2,15 @@ package main
 
 import (
 	"github.com/sanchey92/golang-simple-cache/internal/config"
+	"github.com/sanchey92/golang-simple-cache/internal/server"
 	logSetup "github.com/sanchey92/golang-simple-cache/pkg/logger/setup"
+	"log"
 )
 
 func main() {
 	cfg := config.MustLoad()
-	log := logSetup.SetupLogger(cfg.Env)
+	logger := logSetup.SetupLogger(cfg.Env)
+	srv := server.New(cfg, logger)
 
-	log.Info("Info log")
-	log.Warn("Warn log")
-	log.Error("Error log")
+	log.Fatal(srv.Start())
 }
